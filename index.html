@@ -16,6 +16,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+          <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -639,106 +640,39 @@
 
                         </div>
 
-                        <div class="col-lg-6 mb-4">
 
-                            <!-- Word Cloud-->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="text-center">
-                                    <img src="wordC.jpg" alt="wordcloud">
-                                </div>
-                            </div>
-
-                            <!-- Approach -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                                </div>
-                                <div class="card-body">
-                                  <img src="approach.jpg" alt="Approach " width="500">
-                                    <p>The customer feedback look in large service based corporations is to very long. Getting the pulse of customers ,challenges they face and figuring out satisfaction with service is very difficult. It usually takes days, months and elaborate survey campaigns to gauge what the customer is thinking. This creates a disconnect in between service delivery and customer satisfaction. The challenge was to somehow shorten this feedback loop while reducing the cost at the same time</p>
-                                    <p class="mb-0"></p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                      <div class="container my-4">
-
-    <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3>Bar Series</h3>
-                </div>
-                <div class="panel-body">
-                    <div id="chart1"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3>Multiple Bar Series</h3>
-                </div>
-                <div id="chart2" class="panel-body">
-                </div>
-            </div>
-        </div>
-    </div>   
-</div>
-
-<!-- you need to include the shieldui css and js assets in order for the charts to work -->
-<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
-<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-
-<script type="text/javascript">
-    jQuery(function ($) {
-        var data1 = [12, 3, 4, 2, 12, 3, 4, 17, 22, 34, 54, 67];
-        var data2 = [3, 9, 12, 14, 22, 32, 45, 12, 67, 45, 55, 7];
-        var data3 = [23, 19, 11, 134, 242, 352, 435, 22, 637, 445, 555, 57];
-            
-        $("#chart1").shieldChart({
-            exportOptions: {
-                image: false,
-                print: false
-            },
-            axisY: {
-                title: {
-                    text: "Break-Down for selected quarter"
-                }
-            },
-            dataSeries: [{
-                seriesType: "bar",
-                data: data1
-            }]
-        });
-
-        $("#chart2").shieldChart({
-            exportOptions: {
-                image: false,
-                print: false
-            },
-            axisY: {
-                title: {
-                    text: "Break-Down for selected quarter"
-                }
-            },
-            dataSeries: [{
-                seriesType: "bar",
-                data: data2
-            }, {
-                seriesType: "bar",
-                data: data3
-            }]
-        });
-    });
-</script>
-
+    <! -- BAR CHART -->
+<script src="https://cdn.anychart.com/releases/8.0.0/themes/dark_earth.min.js" type="text/javascript"></script>
+ <script>
+      anychart.onDocumentReady(function() {
+ 
+        // set the data
+        var data = {
+            header: ["Name", "Death toll"],
+            rows: [
+              ["San-Francisco (1906)", 1500],
+              ["Messina (1908)", 87000],
+              ["Ashgabat (1948)", 175000],
+              ["Chile (1960)", 10000],
+              ["Tian Shan (1976)", 242000],
+              ["Armenia (1988)", 25000],
+              ["Iran (1990)", 50000]
+        ]};
+ 
+        // create the chart
+        var chart = anychart.bar();
+ 
+        // add the data
+        chart.data(data);
+ 
+        // set the chart title
+        chart.title("The deadliest earthquakes in the XXth century");
+ 
+        // draw
+        chart.container("container");
+        chart.draw();
+      });
+    </script>
   </div>
 
                 </div>
